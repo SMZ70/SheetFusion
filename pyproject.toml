@@ -12,7 +12,7 @@ exclude = ["__pycache__/*"]
 
 [project]
 name = "sheetfusion"
-version = "1.0.0"
+version = "1.0.2"
 authors = [
   { name = "Mohammad Znz", email = "52261779+SMZ70@users.noreply.github.com" },
 ]
