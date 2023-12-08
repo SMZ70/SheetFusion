@@ -5,7 +5,7 @@
 ![version][version]
 
 <p align="center">
-  <img src="assets/logo.png" alt="SheetFusion Logo" width="200">
+  <img src="https://raw.githubusercontent.com/SMZ70/SheetFusion/master/assets/logo.png" alt="SheetFusion Logo" width="200">
 </p>
 
 <h1 align="center">SheetFusion</h1>
