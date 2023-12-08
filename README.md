@@ -23,7 +23,7 @@ SheetFusion is a simple, user-friendly tool designed to merge cover sheets with 
 ### Using pip
 
 ```bash
-pip install sheetfusion
+python3 -m pip install sheetfusion
 ```
 
 ### From source
@@ -32,7 +32,7 @@ pip install sheetfusion
 git clone https://github.com/SMZ70/SheetFusion.git
 cd SheetFusion
 python3 -m build
-pip install dist/sheetfusion-1.0.0.tar.gz
+python3 -m pip install dist/sheetfusion-1.0.0.tar.gz
 ```
 
 ## Usage
@@ -42,6 +42,12 @@ pip install dist/sheetfusion-1.0.0.tar.gz
 ## Usage
 
 `SheetFusion` is a command-line tool designed for merging cover sheets with exams. To use it, follow the command syntax below:
+
+```bash
+python3 -m sheetfusion [--help] --cover-sheets --exam [--output-dir] [--overwrite]
+```
+
+or:
 
 ```bash
 sheetfusion [--help] --cover-sheets --exam [--output-dir] [--overwrite]
@@ -73,13 +79,13 @@ The following examples demonstrate how to use `SheetFusion`:
 ### Basic Usage
 
 ```bash
-sheetfusion -c cover_sheets.pdf -e exam.pdf
+python3 -m sheetfusion -c cover_sheets.pdf -e exam.pdf
 ```
 
 ### Specifying an Output Directory
 
 ```bash
-sheetfusion -c cover_sheets.pdf -e exam.pdf -o output_dir
+python3 -m sheetfusion -c cover_sheets.pdf -e exam.pdf -o output_dir
 ```
 
 ### Overwriting Existing Files
@@ -87,7 +93,7 @@ sheetfusion -c cover_sheets.pdf -e exam.pdf -o output_dir
 If the output directory already contains files with the same name as the merged PDFs, `SheetFusion` will not overwrite them by default. To enable overwriting, use the `--overwrite` flag.
 
 ```bash
-sheetfusion -c cover_sheets.pdf -e exam.pdf -o output_dir --overwrite
+python3 -m sheetfusion -c cover_sheets.pdf -e exam.pdf -o output_dir --overwrite
 ```
 
 ## Change Log
