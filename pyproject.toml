@@ -12,10 +12,8 @@ exclude = ["__pycache__/*"]
 
 [project]
 name = "sheetfusion"
-version = "1.0.2"
-authors = [
-  { name = "Mohammad Znz", email = "52261779+SMZ70@users.noreply.github.com" },
-]
+version = "1.0.3"
+authors = [{ name = "Mohammad Znz", email = "s.mohammad.znz@gmail.com" }]
 description = ""
 readme = "README.md"
 requires-python = ">=3.9"
@@ -24,7 +22,8 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
 ]
-dependencies = ["PyPDF3~=1.0.6"]
+dependencies = ["PyPDF3~=1.0.6", "rich~=13.7.0", "setuptools~=69.0.2"]
+
 
 [project.urls]
 "Homepage" = "https://github.com/SMZ70/SheetFusion"
