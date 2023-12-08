@@ -1,5 +1,5 @@
 [python]: https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white
-[version]: https://img.shields.io/badge/Version-1.0.1-blue
+[version]: https://img.shields.io/badge/Version-1.0.3-blue
 
 ![python][python]
 ![version][version]
@@ -97,3 +97,7 @@ See the [CHANGELOG](CHANGELOG.md) for more information.
 ## License
 
 `SheetFusion` is open-source software licensed under the MIT License. For more details, see the [LICENSE](LICENSE) file in this repository.
+
+## Contact
+
+Thank you for your interest in SheetFusion! For bug reports, feature requests, or general inquiries related to the project, please use [GitHub Issues](https://github.com/SMZ70/SheetFusion/issues). This is the fastest way to get your questions answered. It also allows other users to benefit from the discussion.
