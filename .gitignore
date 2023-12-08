@@ -11,3 +11,4 @@ dist/
 # virtual env
 venv/
 temp.py
+.vscode/changelog.code-snippets
