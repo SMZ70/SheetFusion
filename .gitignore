@@ -10,3 +10,4 @@ dist/
 
 # virtual env
 venv/
+temp.py
