@@ -1,5 +1,5 @@
 [python]: https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white
-[version]: https://img.shields.io/badge/Version-1.0.5dev-blue
+[version]: https://img.shields.io/badge/Version-1.0.5-blue
 
 ![python][python]
 ![version][version]
