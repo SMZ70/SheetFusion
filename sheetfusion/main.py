@@ -105,7 +105,7 @@ def main():
                 writer.addPage(exam_reader.getPage(j))
                 progress.update(this_exam_task, advance=1)
 
-            write_path = output_dir / f"exam_{i+1:0{n_leading_zeros}d}.pdf"
+            write_path = output_dir / f"{i+1:0{n_leading_zeros}d}.pdf"
             if write_path.exists() and not args.overwrite:
                 console.print(
                     f"[bold red]Warning:[/bold red] [white]The file '{write_path}' already exists. Skipping.[white]"
