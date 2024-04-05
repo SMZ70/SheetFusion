@@ -15,53 +15,65 @@ SCRIPTDIR = os.getcwd()
 
 def main():
     console = Console()
-    logo = """                                                                                                                                        
-╔═╗╦ ╦╔═╗╔═╗╔╦╗╔═╗╦ ╦╔═╗╦╔═╗╔╗╔
-╚═╗╠═╣║╣ ║╣  ║ ╠╣ ║ ║╚═╗║║ ║║║║
-╚═╝╩ ╩╚═╝╚═╝ ╩ ╚  ╚═╝╚═╝╩╚═╝╝╚╝
-"""
+    logo = (
+        Path(__file__)
+        .parent.joinpath("assets")
+        .joinpath("ascii_logo.txt")
+        .read_text()
+    )
     console.print(f"[bold green1]{logo}[/bold green1]")
     try:
         console.print(
-            f"[bold green1]v{pkg_resources.get_distribution('sheetfusion').version}[bold green1]\n\n"
+            "[bold green1]"
+            f"v{pkg_resources.get_distribution('sheetfusion').version}"
+            "[bold green1]\n\n"
         )
     except pkg_resources.DistributionNotFound:
-        console.print(f"[bold green1]v0.0.0[bold green1]\n\n")
+        console.print("[bold green1]v0.0.0[bold green1]\n\n")
 
     args = parse_args()
 
     cover_sheets_file = Path(args.cover_sheets_file)
     if not cover_sheets_file.exists():
         console.print(
-            f"[bold red]Error: The file '{cover_sheets_file}' does not exist.[/bold red]"
+            "[bold red]Error:"
+            f" The file '{cover_sheets_file}' does not exist.[/bold red]"
         )
         return
 
     exam_file = Path(args.exam_file)
     if not exam_file.exists():
         console.print(
-            f"[bold red]Error: The file '{exam_file}' does not exist.[/bold red]"
+            "[bold red]Error:"
+            f" The file '{exam_file}' does not exist.[/bold red]"
         )
         return
 
     output_dir = Path(args.output_dir)
     if not output_dir.exists():
-        info_message = f"[bold cyan]Info:[/bold cyan] [bold white]The directory '{output_dir}' does not exist. Creating it now.[/bold white]"
+        info_message = (
+            "[bold cyan]Info:[/bold cyan]"
+            f" [bold white]The directory '{output_dir}' does not exist."
+            " Creating it now.[/bold white]"
+        )
         console.print(info_message)
         try:
             os.makedirs(output_dir)
         except Exception as e:
             console.print(
-                f"[bold red]Error: Failed to create the directory '{output_dir}'[/bold red]"
+                "[bold red]Error:"
+                f"Failed to create the directory '{output_dir}'[/bold red]"
             )
             console.print(e)
             return
 
-    with TitledProgress(
-        title=f"start: [green]{START_DT_STR}[/green]"
-    ) as progress, open(cover_sheets_file, "rb") as covers, open(
-        exam_file, "rb"
-    ) as exam:
+    with (
+        TitledProgress(
+            title=f"start: [green]{START_DT_STR}[/green]"
+        ) as progress,
+        open(cover_sheets_file, "rb") as covers,
+        open(exam_file, "rb") as exam,
+    ):
         console = progress.console
         cover_reader = PyPDF3.PdfFileReader(covers)
         exam_reader = PyPDF3.PdfFileReader(exam)
@@ -69,13 +81,16 @@ def main():
         n_exams = cover_reader.numPages
         n_exam_pages = exam_reader.numPages
 
-        bar = "-" * 50  # Adjust the number based on your desired width
+        bar = "-" * 50
 
         progress.print(f"[bold cyan]{bar}[/bold cyan]")
         progress.print(
-            f"[bold blue]cover_sheets_file:[/bold blue] [white]{cover_sheets_file}[/white]"
+            f"[bold blue]cover_sheets_file:[/bold blue]"
+            f" [white]{cover_sheets_file}[/white]"
         )
-        progress.print(f"[bold blue]exam_file:[/bold blue] [white]{exam_file}[/white]")
+        progress.print(
+            "[bold blue]exam_file:[/bold blue]" f" [white]{exam_file}[/white]"
+        )
         progress.print(
             f"[bold blue]output_dir:[/bold blue] [white]{output_dir}[/white]"
         )
@@ -83,7 +98,8 @@ def main():
             f"[bold blue]number of exams:[/bold blue] [white]{n_exams}[/white]"
         )
         progress.print(
-            f"[bold blue]number of exam pages:[/bold blue] [white]{n_exam_pages}[/white]"
+            "[bold blue]number of exam pages:[/bold blue]"
+            f" [white]{n_exam_pages}[/white]"
         )
         progress.print(f"[bold cyan]{bar}[/bold cyan]")
         print("\n")
@@ -108,7 +124,9 @@ def main():
             write_path = output_dir / f"{i+1:0{n_leading_zeros}d}.pdf"
             if write_path.exists() and not args.overwrite:
                 console.print(
-                    f"[bold red]Warning:[/bold red] [white]The file '{write_path}' already exists. Skipping.[white]"
+                    "[bold red]Warning:[/bold red]"
+                    f" [white]The file '{write_path}' already exists."
+                    " Skipping.[white]"
                 )
                 progress.update(all_exams_task, advance=1)
                 progress.remove_task(this_exam_task)

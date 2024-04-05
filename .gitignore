@@ -12,3 +12,7 @@ dist/
 venv/
 temp.py
 .vscode/changelog.code-snippets
+sample_exams/
+.vscode
+_version.py
+*.egg-info/
